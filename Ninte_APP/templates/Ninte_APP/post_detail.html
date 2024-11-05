@@ -1,0 +1,8 @@
+{% extends 'Ninte_APP/layouts/base.html' %}
+
+{% block title %} Post Detail! {% endblock %}
+{% block content %}
+    <h1>Here's the full infromation about this {{ posts.title }} post</h1>
+        <h2> is published: {{ posts.is_published }}</h2>
+    <a href="{% url 'post_list' %}"><button>Go Back</button></a>
+{% endblock %}

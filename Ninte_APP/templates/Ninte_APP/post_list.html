@@ -1,0 +1,24 @@
+{% extends 'Ninte_APP/layouts/base.html' %}
+{% block title %} Post List! {% endblock %}
+
+{% block content %}
+{% for post in posts %}
+    <ul>
+    <li>
+        {{ post.title }} is published: {{ post.is_published }} <a href="{% url 'post_detail' pk=post.id %}"><button>Details</button></a>
+        <a href="{% url 'post_update' pk=post.id %}"><button>Change</button></a>
+        <a href="{% url 'post_delete' pk=post.id %}"><button>Delete</button></a>
+    </li>
+    </ul>
+
+    {% endfor %}
+    {% if is_paginated %}
+            {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}"><button>next</button></a>
+            {% endif %}
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"><button>prev</button></a>
+            {% endif %}
+    {% endif %}
+    <a href="{% url 'post_create' %}"><button>Create Post</button></a>
+{% endblock %}

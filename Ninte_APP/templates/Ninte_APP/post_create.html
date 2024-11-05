@@ -1,0 +1,11 @@
+{% extends 'Ninte_APP/layouts/base.html' %}
+
+
+{% block title %} Post Detail! {% endblock %}
+{% block content %}
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Change Post</button>
+    </form>
+{% endblock %}
